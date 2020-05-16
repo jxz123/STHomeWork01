@@ -4,13 +4,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 public class StudentManager {
-    //主方法
     public static void App() {
-        // 创建集合对象，用于存储学生数据
         ArrayList<Student> list = new ArrayList<Student>();
-        // 使用循环让程序回到此处
         while (true) {
-            // 这是学生管理系统的主界面
             System.out.println("--------请选择操作--------");
             System.out.println("1 插入");
             System.out.println("2 查找");
@@ -19,20 +15,17 @@ public class StudentManager {
             System.out.println("5 输出");
             System.out.println("6 退出");
             System.out.println("-------------------------");
-            // 创建键盘录入对象Scanner
             Scanner sc = new Scanner(System.in);
-            //snextLine()扫描此行输入所有字符串直到遇到回车为止
             String choiceString = sc.nextLine();
-            // 用switch语句实现选择
             switch (choiceString) {
                 case "1":
                     // 插入
                     addStudent(list);
                     break;
                 case "2":
-                	//查找
-                	searchStudent(list);
-                	break;
+                    //查找
+                    searchStudent(list);
+                    break;
                 case "3":
                     // 删除
                     deleteStudent(list);
@@ -52,7 +45,6 @@ public class StudentManager {
 
                 default:
                     System.out.println("按键错误，请重新输入");
-//                    System.exit(0); // JVM退出
                     break;
             }
         }
@@ -61,7 +53,6 @@ public class StudentManager {
      * 修改学生：键盘录入一个姓名，到集合中去查找，看是否有学生使用的是该姓名，如果有就修改该学生
      */
     public static void updateStudent(ArrayList<Student> list) {
-        // 创建键盘录入对象
         Scanner sc = new Scanner(System.in);
         System.out.println("请输入你要修改的学生的姓名：");
         String name = sc.nextLine();
@@ -108,7 +99,6 @@ public class StudentManager {
      * 查找学生：键盘录入一个姓名，到集合中去查找，看是否有学生使用的是该姓名
      */
     public static void searchStudent(ArrayList<Student> list) {
-        // 创建键盘录入对象
         Scanner sc = new Scanner(System.in);
         System.out.println("请输入你要查找的学生的姓名：");
         String name = sc.nextLine();
@@ -134,7 +124,6 @@ public class StudentManager {
      * 删除学生：键盘录入一个姓名，到集合中去查找，看是否有学生使用的是该姓名，如果有就删除该学生
      */
     public static void deleteStudent(ArrayList<Student> list) {
-        // 创建键盘录入对象
         Scanner sc = new Scanner(System.in);
         System.out.println("请输入你要删除的学生的姓名：");
         String name = sc.nextLine();
@@ -162,17 +151,13 @@ public class StudentManager {
      * 添加学生的方法
      */
     public static void addStudent(ArrayList<Student> list) {
-        // 创建键盘录入对象
         Scanner sc = new Scanner(System.in);
-        // 为了让name能够被访问到，我们就把name定义在了循环的外面
         String name;
-        // 为了让代码能够回到这里，用循环
         while (true) {
             System.out.println("请输入学生姓名：");
             // String name = sc.nextLine();
             name = sc.nextLine();
             // 判断姓名有没有被人占用
-            // 定义标记
             boolean flag = false;
             // 遍历集合，得到每一个学生
             for (int x = 0; x < list.size(); x++) {
@@ -207,9 +192,7 @@ public class StudentManager {
         s.setId(id);
         s.setBirDate(birDate);
         s.setGender(gender);
-        // 把学生对象作为元素添加到集合
         list.add(s);
-        // 给出提示
         System.out.println("添加学生成功");
     }
     /*
